@@ -6,24 +6,25 @@
 
 using namespace std;
 
-defaultSystem::defaultSystem(const string IP) {
-    passwordCount=0;
-    IPadd= IP;
+defaultSystem::defaultSystem(const string IP)
+{
+    passwordCount = 0;
+    IPadd = IP;
     MFA = false;
     newDevice = false;
-
 }
 
-void FakeData::load(const char* filename) {
+void FakeData::load(const char *filename)
+{
 
     int i = 0;
-   
+
     ifstream file(filename);
 
-    if (filename) {
-        file.open(filename);
-        while (file) {
-
+    if (filename)
+    {
+        if(file.is_open())
+        {
             getline(file, name, ',');
             getline(file, phone, ',');
             getline(file, email, ',');
@@ -31,12 +32,13 @@ void FakeData::load(const char* filename) {
         }
         i++;
     }
-
-    
 }
 void FakeData::display()
 {
-    cout << "NAME:" << name << endl << "PHONE:" << phone << endl << "E-MAIL" << email << endl << "ADDRESS:" << address << endl;
+    cout << "NAME:" << name << endl
+         << "PHONE:" << phone << endl
+         << "E-MAIL" << email << endl
+         << "ADDRESS:" << address << endl;
 }
 std::string FakeData::getName()
 {
@@ -53,11 +55,11 @@ std::string FakeData::getEmail()
 std::string FakeData::getAddress()
 {
     return address;
-}
-;
+};
 
-size_t defaultSystem::getPasswordCount() {
-    return passwordCount; 
+size_t defaultSystem::getPasswordCount()
+{
+    return passwordCount;
 }
 
 string defaultSystem::getIpadd()
